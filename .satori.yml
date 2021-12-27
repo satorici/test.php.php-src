@@ -1,0 +1,14 @@
+tests:
+    hello:
+        assertStdoutEqual: "Hello World"
+        input:
+            - "Hello World"
+software:
+    python:
+        execute: ["./php", "-c", "print('[[tests]]')"]
+        install:
+            - sudo apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev
+            - ./buildconf
+            - ./configure
+            - make -j4
+            - ls -l
