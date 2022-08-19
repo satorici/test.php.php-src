@@ -1,15 +1,10 @@
+install:
+  - [ apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev
+  ./buildconf
+  ./configure
+  make -j4 ]
+
 tests:
-    hello:
-        assertStdoutEqual: "Hello World"
-        input:
-            - "Hello World"
-software:
-    python:
-        execute: ["sapi/cli/php", "-r", "echo '[[tests]]';"]
-        install:
-            - apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev
-            - ./buildconf
-            - ./configure
-            - make -j4
-            - ls -l
-            - ls -l sapi/cli/
+  assertStdoutEqual: "Hello World"
+  execute: 
+  - [ sapi/cli/php -r "echo '[[tests]]';"]
