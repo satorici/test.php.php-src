@@ -11,4 +11,4 @@ install:
 tests:
   assertStdoutEqual: "Hello World"
   execute: 
-  - [ sapi/cli/php -r "echo '[[tests]]';"]
+  - [ sapi/cli/php -r "echo \"Hello World\";"]
