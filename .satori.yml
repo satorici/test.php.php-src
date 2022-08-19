@@ -1,4 +1,5 @@
 install:
+  assertReturnCode: 0
   packages:
   - [ apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev ]
   buildconf:
@@ -9,6 +10,7 @@ install:
   - [ make -j4 ]
 
 tests:
+  assertReturnCode: 0
   assertStdoutEqual: "Hello World"
   execute: 
   - [ sapi/cli/php -r "echo \"Hello World\";"]
