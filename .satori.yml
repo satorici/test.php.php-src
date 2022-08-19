@@ -1,8 +1,12 @@
 install:
-  - [ apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev
-  ./buildconf
-  ./configure
-  make -j4 ]
+  packages:
+  - [ apt install -y pkg-config build-essential autoconf bison re2c libxml2-dev libsqlite3-dev ]
+  buildconf:
+  - [ ./buildconf ]
+  configure:
+  - [ ./configure ]
+  make:
+  - [ make -j4 ]
 
 tests:
   assertStdoutEqual: "Hello World"
